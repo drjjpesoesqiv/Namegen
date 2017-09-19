@@ -1,6 +1,6 @@
 # Namegen
 
-**TODO: Add description**
+Generates a random first and last name output in JSON format.
 
 ## Installation
 
