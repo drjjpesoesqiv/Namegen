@@ -14,10 +14,13 @@ defmodule Namegen do
 
   """
   def gen(gender\\ "male") do
-    {:ok, lastBody} = File.read("priv/last.txt")
+
+    last_path = Path.join(:code.priv_dir(:namegen), "last.txt")
+    {:ok, lastBody} = File.read last_path
     lastNames = String.split(lastBody, "\n")
 
-    {:ok, firstBody} = File.read("priv/first_#{gender}.txt")
+    first_path = Path.join(:code.priv_dir(:namegen), "first_#{gender}.txt")
+    {:ok, firstBody} = File.read first_path
     firstNames = String.split(firstBody, "\n")
 
     first = Enum.at(firstNames, :rand.uniform length(firstNames))
